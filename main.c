@@ -3,6 +3,9 @@
 #include <string.h>
 #include <time.h>
 #include "creatures.h"
+#include "joueur.h"
+#include "combat.h"
+
 
 
 
@@ -21,6 +24,19 @@ int main() {
 
 
     creation_du_typeetaffectation(new_tab, TAILLE_MAX_CREATURES, profondeur);
+
+    afficher_creatures(new_tab, TAILLE_MAX_CREATURES);
+
+    Plongeur joueur;
+    init_plongeur(&joueur);
+
+    int cible = -1;
+    for (int i = 0; i < TAILLE_MAX_CREATURES; i++) {
+        if (new_tab[i].est_vivant) { cible = i; break; }
+    }
+    if (cible != -1) {
+        attaquer_avec_harpon(&joueur, &new_tab[cible], profondeur);
+    }
 
     return 0;
 }
