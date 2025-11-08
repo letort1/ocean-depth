@@ -14,7 +14,7 @@
   - Fonction `attaquer_avec_harpon()` : calcul des dégâts + consommation O₂ + fatigue.
   - Premier test d’interaction joueur → créature via affichage console.
 
-- [ ] **Étape 3 — Attaque des créatures**
+- [x] **Étape 3 — Attaque des créatures** (Fait par Thomas)
   - Gestion des tours de riposte selon la vitesse.
   - Effets spéciaux des créatures (Kraken, Méduse, Requin…).
   - Interaction complète joueur <-> créatures.
@@ -43,6 +43,9 @@
 
 ### Étape 2 — Attaque du plongeur
 ![Attaque du plongeur](docs/capture_etape2.png)
+
+### Étape 3 — Attaque des créatures
+![Attaque du plongeur](docs/capture_etape3.png)
 
 ---
 

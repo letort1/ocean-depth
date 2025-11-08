@@ -8,6 +8,9 @@ void init_plongeur(Plongeur *j) {
     j->niveau_fatigue      = 0;
     j->perles              = 0;
 
+    j->est_paralyse        = 0;
+    j->penalite_attaques_prochain_tour = 0;
+
     j->attaque_minimale    = 15;
     j->attaque_maximale    = 25;
     j->defense             = 0;
