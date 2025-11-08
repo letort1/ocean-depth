@@ -9,6 +9,9 @@ typedef struct {
     int niveau_fatigue;   
     int perles;
 
+    int est_paralyse;
+    int penalite_attaques_prochain_tour;
+    
     int attaque_minimale;
     int attaque_maximale;
     int defense;

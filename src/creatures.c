@@ -57,7 +57,7 @@ CreatureMarine nouvelle_creature(int type) {
         creature.points_de_vie_max = nombre_aleatoire(70, 90);
         creature.attaque_minimale = nombre_aleatoire(18, 25);
         creature.attaque_maximale = nombre_aleatoire(25, 28);
-        creature.defense = nombre_aleatoire(10, 15);
+        creature.defense = nombre_aleatoire(8, 11);
 		creature.vitesse = nombre_aleatoire(15, 25);
         creature.est_vivant = 1;
         creature.points_de_vie_actuels = creature.points_de_vie_max;
@@ -101,8 +101,8 @@ void creation_du_typeetaffectation(CreatureMarine new_tab[], int taille_max_crea
     for (int i = 0; i < nombre_creatures_generees; i++) {
         int tirage = nombre_aleatoire(0, 99);
         if (profondeur < 20) {
-            if (tirage < 50) type = 3;
-            else if (tirage < 90) type = 4;
+            if (tirage < 70) type = 3;
+            else if (tirage < 95) type = 4;
             else type = 2;
         }
         else if (profondeur < 60) {
@@ -132,7 +132,7 @@ void creation_du_typeetaffectation(CreatureMarine new_tab[], int taille_max_crea
     }  
 }       
 
-// Fonction debug pour afficher les creatures (temporaire)
+// Fonction debug pour afficher les creatures générées
 void afficher_creatures(CreatureMarine tab[], int taille_max_creatures) {
     printf("\n=== Creatures generees ===\n");
     for (int i = 0; i < taille_max_creatures; i++) {
