@@ -1,4 +1,4 @@
-#include "joueur.h"
+#include "../include/joueur.h"
 
 void init_plongeur(Plongeur *j) {
     j->points_de_vie_max   = 100;

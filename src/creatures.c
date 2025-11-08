@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <time.h>
-#include "creatures.h"
+#include "../include/creatures.h"
 
 int nombre_aleatoire(int minimum, int maximum) {
     return rand() % (maximum - minimum + 1) + minimum;

@@ -2,9 +2,9 @@
 #include <stdio.h>
 #include <string.h>
 #include <time.h>
-#include "creatures.h"
-#include "joueur.h"
-#include "combat.h"
+#include "../include/creatures.h"
+#include "../include/joueur.h"
+#include "../include/combat.h"
 
 
 

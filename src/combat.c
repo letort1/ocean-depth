@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "combat.h"
+#include "../include/combat.h"
 
 static int rand_intervalle(int min, int max) {
     return rand() % (max - min + 1) + min;
