@@ -42,7 +42,7 @@ CreatureMarine nouvelle_creature(int type) {
         creature.points_de_vie_actuels = creature.points_de_vie_max;
         break;
     case 3:
-        snprintf(creature.nom ,30, "Méduse");
+        snprintf(creature.nom ,30, "Meduse");
         creature.points_de_vie_max = nombre_aleatoire(20, 40);
         creature.attaque_minimale = nombre_aleatoire(8, 12);
         creature.attaque_maximale = nombre_aleatoire(12, 15);
@@ -53,7 +53,7 @@ CreatureMarine nouvelle_creature(int type) {
         creature.points_de_vie_actuels = creature.points_de_vie_max;
         break;
     case 4:
-        snprintf(creature.nom ,30, "Poisson-Épée");
+        snprintf(creature.nom ,30, "Poisson-epee");
         creature.points_de_vie_max = nombre_aleatoire(70, 90);
         creature.attaque_minimale = nombre_aleatoire(18, 25);
         creature.attaque_maximale = nombre_aleatoire(25, 28);
@@ -65,7 +65,7 @@ CreatureMarine nouvelle_creature(int type) {
         break;
 
     case 5:
-        snprintf( creature.nom ,30, "Crabe Géant");
+        snprintf( creature.nom ,30, "Crabe Geant");
         creature.points_de_vie_max = nombre_aleatoire(80, 120);
         creature.attaque_minimale = nombre_aleatoire(12, 18);
         creature.attaque_maximale = nombre_aleatoire(18, 20);
@@ -96,36 +96,58 @@ int nombredecreatures (int profondeur)
 }
 
 void creation_du_typeetaffectation(CreatureMarine new_tab[], int taille_max_creatures, int profondeur){
-    int nombrecreaturesgénérées = nombredecreatures(profondeur);
+    int nombre_creatures_generees = nombredecreatures(profondeur);
     int type;
-    for (int i = 0; i < nombrecreaturesgénérées; i++) {
+    for (int i = 0; i < nombre_creatures_generees; i++) {
         int tirage = nombre_aleatoire(0, 99);
         if (profondeur < 20) {
             if (tirage < 50) type = 3;
             else if (tirage < 90) type = 4;
             else type = 2;
-     }
+        }
         else if (profondeur < 60) {
             if (tirage < 25) type = 4;
             else if (tirage < 60) type = 1;
             else if (tirage < 95) type = 2;
             else type = 3;
-    }
+        }
         else {
             if (tirage < 40) type = 1;
             else if (tirage < 75) type = 5;
             else type = 4;
-    }
-    int index_libre = -1;
-    for (int j = 0; j < taille_max_creatures; j++) {
-        if (new_tab[j].est_vivant == 0) {
-            index_libre = j;
-            break;
+        }
+
+        int index_libre = -1;
+        for (int j = 0; j < taille_max_creatures; j++) {
+            if (new_tab[j].est_vivant == 0) {
+                index_libre = j;
+                break;
+            }
+        }
+        if (index_libre == -1) {
+            printf("ERREUR: Le banc est plein. Impossible d'ajouter de nouvelles creatures.\n");
+            break;  
+        }
+        new_tab[index_libre] = nouvelle_creature(type);
+    }  
+}       
+
+// Fonction debug pour afficher les creatures (temporaire)
+void afficher_creatures(CreatureMarine tab[], int taille_max_creatures) {
+    printf("\n=== Creatures generees ===\n");
+    for (int i = 0; i < taille_max_creatures; i++) {
+        if (tab[i].est_vivant) {
+            printf("[%d] %s  PV:%d/%d  ATK:%d-%d  DEF:%d  VIT:%d  Effet:%s\n",
+                   tab[i].id,
+                   tab[i].nom,
+                   tab[i].points_de_vie_actuels,
+                   tab[i].points_de_vie_max,
+                   tab[i].attaque_minimale,
+                   tab[i].attaque_maximale,
+                   tab[i].defense,
+                   tab[i].vitesse,
+                   tab[i].effet_special);
         }
     }
-    if (index_libre == -1) {
-        printf("ERREUR: Le banc est plein. Impossible d'ajouter de nouvelles créatures.\n");
-        break;
-    }
-    new_tab[index_libre] = nouvelle_creature(type);
+    printf("==========================\n");
 }

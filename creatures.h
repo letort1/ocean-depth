@@ -25,3 +25,5 @@ int nombredecreatures(int profondeur);
 void creation_du_typeetaffectation(CreatureMarine new_tab[], int taille_max_creatures, int profondeur);
 
 #endif 
+
+void afficher_creatures(CreatureMarine tab[], int taille_max_creatures);
