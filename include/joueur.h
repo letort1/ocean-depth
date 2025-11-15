@@ -15,6 +15,7 @@ typedef struct {
     int attaque_minimale;
     int attaque_maximale;
     int defense;
+    char inventaire[8][32];
 } Plongeur;
 
 // init valeurs de base du plongeur
