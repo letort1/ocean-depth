@@ -1,8 +1,8 @@
-//
-// Created by rayan on 14/11/2025.
-//
+#ifndef RECOMPENSES_H
+#define RECOMPENSES_H
 
-#ifndef OCEAN_DEPTH_RECOMPENSES_H
-#define OCEAN_DEPTH_RECOMPENSES_H
+#include "joueur.h"
 
-#endif //OCEAN_DEPTH_RECOMPENSES_H
+void generer_recompense(Plongeur *j);
+
+#endif

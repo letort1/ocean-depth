@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "../include/combat.h"
+#include "../include/recompenses.h"
 
 static int rand_intervalle(int min, int max) {
     return rand() % (max - min + 1) + min;
@@ -255,5 +256,6 @@ void boucle_combat(CreatureMarine tab[], int taille, Plongeur *j, int profondeur
         printf("\n=== DEFAITE : vous avez ete vaincu. ===\n");
     } else {
         printf("\n=== VICTOIRE : toutes les creatures sont vaincues ! ===\n");
+        generer_recompense(j);
     }
 }
